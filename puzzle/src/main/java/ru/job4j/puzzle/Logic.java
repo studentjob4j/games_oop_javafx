@@ -74,7 +74,9 @@ public class Logic {
         for (int i = 0; i < table.length ; i++) {
             if (table[i][i] == 1) {
                 result = (whenVerticalThenTrue(table, i) || whenHorizontalThenTrue(table, i));
-                break;
+                if (result) {
+                    break;
+                }
             }
         }
         return result;
