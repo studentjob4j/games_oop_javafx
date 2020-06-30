@@ -72,15 +72,9 @@ public class Logic {
         int[][] table = this.convert();
         boolean result = false;
         for (int i = 0; i < table.length ; i++) {
-            for (int j = 0; j < table[i].length; j++) {
-                if (table[i][j] == 1 && j == 0) {
-                    result = whenHorizontalThenTrue( table, i);
-                    break;
-                }
-                if(table[i][j] == 1 && i == 0) {
-                    result = whenVerticalThenTrue(table, j);
-                    break;
-                }
+            if (table[i][i] == 1) {
+                result = (whenVerticalThenTrue(table, i) || whenHorizontalThenTrue(table, i));
+                break;
             }
         }
         return result;
@@ -91,6 +85,7 @@ public class Logic {
         for (int i = 0; i < data.length; i++) {
             if (data[row][i] != 1) {
                 rsl = false;
+                break;
             }
         }
         return rsl;
@@ -101,6 +96,7 @@ public class Logic {
         for (int i = 0; i < data.length; i++) {
             if (data[i][cell] != 1) {
                 rsl = false;
+                break;
             }
         }
         return rsl;
