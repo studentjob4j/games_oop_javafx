@@ -34,9 +34,11 @@ public class Logic {
         boolean result = false;
         for (Cell cell : steps) {
             for (Figure figure : this.figures) {
-                if (cell.equals(figure.position())) {
-                    result = true;
-                    break;
+                if (figure != null) {
+                    if (cell.equals(figure.position())) {
+                        result = true;
+                        break;
+                    }
                 }
             }
         }
