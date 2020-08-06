@@ -36,7 +36,6 @@ public class Logic {
             for (int j = 0; j < index; j++) {
                     if (steps[i].equals(figures[j].position())) {
                         result = true;
-                       return result;
                 }
             }
         }
